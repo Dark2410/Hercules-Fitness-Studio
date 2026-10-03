@@ -1,0 +1,703 @@
+/* Author: Omkar Pawar
+   Date: 3rd sep 2026
+   last modified: 30th sep 2026
+   Description: CSS for the fitness website
+   this and other sub file  contains the styles for the fitness website, including layout, typography, colors, and responsive design.
+   all imges used in this project are created from chat.gpt and copyrighted.
+
+ */
+
+/* ==========================================================================
+   TABLE OF CONTENTS
+   ==========================================================================
+   1. CSS RESET
+   2. VARIABLES & THEME
+   3. GLOBAL COMPONENTS (Buttons, Layout)
+   4. PAGE/SPECIFIC PARTS
+   ========================================================================== */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* CSS variables */
+:root {
+    --main-background: #0B0B0B;
+    --sec-background: #141414;
+
+    --primary-accent: #FF6A00;
+    --accent-highlight: #FFB000;
+
+    --main-text: #F5F5F5;
+    --secondary-text: #A3A3A3;
+
+    --borders: #292929;
+    --btn-padding: 10px 18px;
+
+    --accent-soft: rgba(255, 106, 0, 0.12);
+    --accent-border: rgba(255, 106, 0, 0.45);
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+
+
+    --section-padding: 90px;
+    --container-width: 1200px;
+
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 64px;
+
+    --navbar-height: 50px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--main-text);
+    background-color: var(--main-background);
+}
+
+section {
+     scroll-margin-top: 90px;
+    padding: var(--section-padding) 5%;
+}
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+/* 3. GLOBAL COMPONENTS  */
+.nav-btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 11px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+/* Primary action buttons.
+   .btn-colour is kept as a compatibility class for the existing HTML. */
+.btn-primary,
+.btn-colour {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: var(--primary-accent);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-colour:hover {
+    background: var(--accent-highlight);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 106, 0, 0.20);
+}
+
+/* Secondary action: useful for lower-priority actions such as directions. */
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--borders);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--main-text);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--primary-accent);
+    border-color: var(--accent-border);
+    background: var(--accent-soft);
+}
+
+.r-m-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+
+
+.join-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--primary-accent);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.join-btn:hover {
+    background-color: var(--accent-highlight);
+}
+
+
+
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-text);
+    background-color: var(--sec-background);
+    border-bottom: 1px solid var(--borders);
+    min-height: var(--navbar-height);
+    padding: 10px 24px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.navigation a {
+    position: relative;
+    color: var(--secondary-text);
+    text-decoration: none;
+    transition: color 0.25s ease;
+
+     font-size: 1.25rem;
+    padding: 8px 10px;
+    border-radius: 5px;
+
+
+}
+
+.navigation li {
+    list-style: none;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.navigation a:hover {
+    color: var(--main-text);
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: -5px;
+    height: 2px;
+    background: var(--primary-accent);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.navigation a:hover::after,
+.navigation a.active::after {
+    transform: scaleX(1);
+}
+
+/* Current-section state: text + underline, not a filled background. */
+.navigation a.active {
+    color: var(--primary-accent);
+}
+
+/* CSS-only active state for the existing hash links. */
+body:has(#about:target) .navigation a[href="#about"],
+body:has(#classes:target) .navigation a[href="#classes"],
+body:has(#schedules:target) .navigation a[href="#schedules"],
+body:has(#gallery:target) .navigation a[href="#gallery"],
+body:has(#contact:target) .navigation a[href="#contact"],
+body:has(#blog:target) .navigation a[href="#blog"],
+body:has(#hero:target) .navigation a[href="#hero"] {
+    color: var(--primary-accent);
+}
+
+body:has(#about:target) .navigation a[href="#about"]::after,
+body:has(#classes:target) .navigation a[href="#classes"]::after,
+body:has(#schedules:target) .navigation a[href="#schedules"]::after,
+body:has(#gallery:target) .navigation a[href="#gallery"]::after,
+body:has(#contact:target) .navigation a[href="#contact"]::after,
+body:has(#blog:target) .navigation a[href="#blog"]::after,
+body:has(#hero:target) .navigation a[href="#hero"]::after {
+    transform: scaleX(1);
+}
+
+
+
+
+/* Hero Section */
+#hero {
+    min-height: calc(100vh - var(--navbar-height));
+    padding: 70px 5%;
+    box-sizing: border-box;
+
+    color: #ff0000;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero::before {
+    content: "";
+    background-image: url("../img/hero.jpg");
+    background-size: cover;
+    background-position: center 25%;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+    
+
+
+.hero-tagline {
+   
+    margin: 0 0 18px;
+
+    color: var(--primary-accent);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    width: fit-content;
+    z-index: 1;
+}
+
+#hero h1 {
+    z-index: 1;
+
+    max-width: 75%;
+    margin: 0 0 22px;
+
+    font-weight: 800;
+    font-size: clamp(3.5rem, 5.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+#hero h1 span {
+    color: var(--primary-accent);
+}
+
+.hero-description {
+    z-index: 1;
+
+    width: 50%;
+    max-width: 600px;
+    margin: 0 0 28px;
+
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+
+    color: #D0D0D0;
+}
+#hero .btn-primary {
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+
+/* Choose Us Section */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-des {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-text);
+    grid-column: span 2;
+}
+
+.choose-title {
+    text-align: center;
+    grid-column: span 2;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--sec-background);
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--primary-accent);
+}
+
+
+/* classes */
+#classes {
+
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 20px;
+}
+
+.classes-grid {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.class-card {
+    background-color: var(--sec-background);
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.class-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--primary-accent);
+}
+
+
+
+/* Schedule Section */
+#schedules {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#schedules h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#schedules p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#schedules img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: #b83d00 2px solid;
+}
+
+#schedules img:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(247, 244, 244, 0.2);
+}
+
+
+/* gallery */
+#gallery {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--borders);
+    background: var(--sec-background);
+    transition: all 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.gallery-title {
+    text-align: center;
+    flex-basis: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-grid {
+    max-width: 1000px;
+    margin: 50px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+}
+.contact-info,
+.contact-action {
+    background: var(--sec-background);
+    border: 1px solid var(--borders);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: left;
+}
+#contact a {
+    color: var(--main-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#contact a:hover {
+    color: var(--primary-accent);
+}
+
+/* Contact actions: keep information links quiet, make actual actions buttons. */
+#contact .contact-action a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 11px 20px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: var(--primary-accent);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#contact .contact-action a:hover {
+    background: var(--accent-highlight);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 106, 0, 0.20);
+}
+
+#contact .contact-info a[href*="google.com/maps"] {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    border: 1px solid var(--borders);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--main-text);
+    font-weight: 600;
+}
+
+#contact .contact-info a[href*="google.com/maps"]:hover {
+    color: var(--primary-accent);
+    border-color: var(--accent-border);
+    background: var(--accent-soft);
+}
+/* blog */
+#blog {
+    padding: 20px 10px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 20px;
+    /* Optional: Adds nice spacing between elements */
+}
+
+.blog-title {
+    text-align: center;
+    grid-column: 1 / -1;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.blog-card {
+    background-color: var(--sec-background);
+    border: 1px solid var(--borders);
+    border-radius: 10px;
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--primary-accent);
+}
+
+.blog-card:nth-of-type(1):last-of-type {
+    grid-column: 1 / -1;
+}
+
+.blog-card:nth-of-type(2n + 1):last-of-type {
+    grid-column: 1 / -1;
+
+}
+
+
+
+
+
+/* Footer */
+#footer-section {
+    background-color: var(--sec-background);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.social-icon {
+    color: var(--primary-accent);
+    font-size: 2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Instagram pink */
+.social-icon:nth-child(1):hover {
+    color: #E1306C;
+}
+
+/* YouTube red */
+.social-icon:nth-child(2):hover {
+    color: #FF0000;
+}
+
+/* X black */
+.social-icon:nth-child(3):hover {
+    color: #f74545;
+}
+
+
+#footer-section p {
+    margin: 5px 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}

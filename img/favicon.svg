@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1c20" />
+      <stop offset="100%" stop-color="#0b0c0e" />
+    </linearGradient>
+
+    <!-- Metallic Gold/Amber Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD000" />
+      <stop offset="100%" stop-color="#FF8C00" />
+    </linearGradient>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#FF9900" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Outer Plate Border Ring -->
+  <circle cx="256" cy="256" r="216" fill="none" stroke="#2a2e35" stroke-width="8" />
+
+  <!-- Hercules Athletic 'H' + Dumbbell Motif -->
+  <g filter="url(#subtleGlow)">
+    <!-- Left Pillar (Plate/Bar segment) -->
+    <rect x="120" y="116" width="64" height="280" rx="16" fill="url(#goldGrad)" />
+    
+    <!-- Right Pillar (Plate/Bar segment) -->
+    <rect x="328" y="116" width="64" height="280" rx="16" fill="url(#goldGrad)" />
+
+    <!-- Central Barbell Crossbar -->
+    <rect x="176" y="226" width="160" height="60" rx="10" fill="url(#goldGrad)" />
+
+    <!-- Center Grip Collar Accents -->
+    <rect x="240" y="214" width="32" height="84" rx="8" fill="#FFF" opacity="0.9" />
+  </g>
+
+  <!-- Athletic Angular Notch Details -->
+  <polygon points="120,116 184,116 120,164" fill="#FFE57F" opacity="0.4" />
+  <polygon points="328,116 392,116 328,164" fill="#FFE57F" opacity="0.4" />
+</svg>
