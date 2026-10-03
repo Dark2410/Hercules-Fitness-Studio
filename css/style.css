@@ -301,7 +301,7 @@ body:has(#hero:target) .navigation a[href="#hero"]::after {
 
 #hero::before {
     content: "";
-    background-image: url("../img/hero.jpg");
+    background-image: url("../img/Hero.jpg");
     background-size: cover;
     background-position: center 25%;
     position: absolute;
